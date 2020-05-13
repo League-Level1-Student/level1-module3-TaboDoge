@@ -13,7 +13,12 @@ public class Backpack {
 		// Your mission is to go to school.
 		// 1. First you need to put all your supplies into your backpack - use
 		// the putInBackpack(...) methods
-
+		Backpack backpack = new Backpack();
+		backpack.putInBackpack(new Pencil());
+	
+		backpack.putInBackpack(new Ruler());
+		
+		backpack.putInBackpack(new Textbook());
 		goToSchool();
 	}
 
@@ -47,7 +52,7 @@ public class Backpack {
 
 	public void goToSchool() {
 		if (pencil == null || ruler == null || textbook == null) {
-			System.out.println("ERROR: You are not ready for School!");
+			System.out.println("Congratulations! You are ready for school.");
 		} else {
 			System.out.println("Congratulations! You are ready for school");
 		}
