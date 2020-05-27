@@ -68,7 +68,7 @@ public class MagicBox extends JPanel implements Runnable, MouseListener {
 
 	@Override
 	public void paintComponent(Graphics g) {
-		g.drawImage(backgroundImage, 0, 0, null);
+		g.drawImage(backgroundImage, 0, 0, this);
 	}
 
 	@Override
@@ -80,8 +80,7 @@ public class MagicBox extends JPanel implements Runnable, MouseListener {
 	@Override
 	public void mousePressed(MouseEvent e) {
 		// TODO Auto-generated method stub
-		MediaPalace media = new MediaPalace();
-		media.loadSound("Howl's Moving Castle [OST - Theme Song].mp3");
+	
 	}
 
 	@Override
@@ -93,7 +92,10 @@ public class MagicBox extends JPanel implements Runnable, MouseListener {
 	@Override
 	public void mouseEntered(MouseEvent e) {
 		// TODO Auto-generated method stub
-		
+		MediaPalace media = new MediaPalace();
+		if(contains(90, 100)) {
+			media.speak("you found it");
+		}
 	}
 
 	@Override
