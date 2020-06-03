@@ -12,6 +12,7 @@ import java.awt.event.MouseListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.net.MalformedURLException;
 
 import javax.imageio.ImageIO;
 import javax.swing.JFrame;
@@ -55,6 +56,7 @@ public class MagicBox extends JPanel implements Runnable, MouseListener {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setVisible(true);
 		frame.addMouseListener(this);
+	
 	}
 
 	private void loadBackgroundImage() throws Exception {
@@ -80,7 +82,15 @@ public class MagicBox extends JPanel implements Runnable, MouseListener {
 	@Override
 	public void mousePressed(MouseEvent e) {
 		// TODO Auto-generated method stub
+	MediaPalace p = new MediaPalace();
 	
+	try {
+		p.loadImageFromTheInternet("https://assets.chicagoparkdistrict.com/s3fs-public/styles/558x314/public/images/facilities/Nature/IMG-20180504-141040.jpg?itok=LLIr02nk");
+	} catch (MalformedURLException e1) {
+		// TODO Auto-generated catch block
+		e1.printStackTrace();
+	
+	}
 	}
 
 	@Override
@@ -93,9 +103,7 @@ public class MagicBox extends JPanel implements Runnable, MouseListener {
 	public void mouseEntered(MouseEvent e) {
 		// TODO Auto-generated method stub
 		MediaPalace media = new MediaPalace();
-		if(contains(90, 100)) {
-			media.speak("you found it");
-		}
+		
 	}
 
 	@Override
