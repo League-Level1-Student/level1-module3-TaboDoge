@@ -1,4 +1,4 @@
-PImage back;
+      PImage back;
      PImage pipeBottom;
      PImage pipeTop;
      PImage bird;
@@ -13,12 +13,13 @@ void setup(){
 }
   int y = 325;int x = 250;
   int px = 500;    int upperPipeHeight;
-  int pipegap = 75;
+  int pipegap = 60;
+ 
 void draw(){
   
    background(back);
    background(loadImage("flappyBackground.jpg"));
-            image (pipeBottom,px,upperPipeHeight);
+            image (pipeBottom,px,upperPipeHeight-75);
             image (pipeTop,px,-130);
            
 
@@ -39,6 +40,17 @@ px = px-5;
   }
   if(px == -45){
     px = 500;
-     upperPipeHeight = (int) random(100, 400);
+     upperPipeHeight = (int) random(300, 700);
   }
+   
 }
+
+
+
+boolean intersectsPipes() {
+         if (y < upperPipeHeight && x > px && x < (x+60)){
+            return true; }
+        else if (y>upperPipeHeight && x > px && x < (px+60)) {
+            return true; }
+        else { return false; }
+   }
