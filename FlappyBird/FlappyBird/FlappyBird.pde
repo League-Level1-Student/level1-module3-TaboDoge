@@ -2,7 +2,7 @@
      PImage pipeBottom;
      PImage pipeTop;
      PImage bird;
-       
+       boolean intersectsPipes;
 void setup(){
  size(500, 750);
  back = loadImage("flappyBackground.jpg");
@@ -11,7 +11,7 @@ void setup(){
             bird = loadImage("bird.png");
             bird.resize(50,50);
 }
-  int y = 325;int x = 250;
+  int y = 525;int x = 250;
   int px = 500;    int upperPipeHeight;
   int pipegap = 60;
  
@@ -19,8 +19,8 @@ void draw(){
   
    background(back);
    background(loadImage("flappyBackground.jpg"));
-            image (pipeBottom,px,upperPipeHeight-75);
-            image (pipeTop,px,-130);
+            image (pipeBottom,px,upperPipeHeight+575);
+            image (pipeTop,px, upperPipeHeight);
            
 
 fill(#FC1225);
@@ -40,17 +40,20 @@ px = px-5;
   }
   if(px == -45){
     px = 500;
-     upperPipeHeight = (int) random(300, 700);
+     upperPipeHeight = (int) random(-200, 0);
   }
    
+if(upperPipeHeight + 435.5 > y && x == px){
+  print("GAME OVER");
+  System.exit(0);
+}
+if(upperPipeHeight + 575 < y && x == px){
+  print("GAME OVER");
+   System.exit(0);
 }
 
 
 
-boolean intersectsPipes() {
-         if (y < upperPipeHeight && x > px && x < (x+60)){
-            return true; }
-        else if (y>upperPipeHeight && x > px && x < (px+60)) {
-            return true; }
-        else { return false; }
-   }
+        
+       
+}
