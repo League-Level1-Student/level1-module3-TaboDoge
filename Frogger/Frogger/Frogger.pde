@@ -2,7 +2,11 @@ void setup(){
   size(800, 600);
   
 }
-int fy = 584;
+  int x;
+  int y;
+  int size;
+  int speed;
+  int fy = 584;
 int fx = 400;
 void draw(){
   background(#767575);
@@ -22,6 +26,17 @@ if(fy >= 780){
   
 }
 }
+ rect car x, y, size, speed;
+  
+
+
+ void display()
+  {
+    fill(0,255,0);
+    rect(x , y,  size, 50);
+  }
+
+
 void keyPressed()
 {
     if(key == CODED){
