@@ -1,16 +1,22 @@
+car car2 = new car(5, 30, 40, 10);
 void setup(){
   size(800, 600);
-  
+ 
 }
-  int x;
-  int y;
-  int size;
-  int speed;
+
   int fy = 584;
 int fx = 400;
+
 void draw(){
-  background(#767575);
+ 
+   background(#767575); 
+  
+  car2.drive();
+  car2.display();
+  
+
   fill(#578B0A);
+    
 ellipse(fx, fy, 30, 30);
 
 if(fx >= 800){
@@ -26,15 +32,37 @@ if(fy >= 780){
   
 }
 }
- rect car x, y, size, speed;
-  
-
-
- void display()
+public class car{
+  int x;
+  int y;
+  int size;
+  int speed;
+  public car(int x, int y, int size, int speed){
+   this.x = x;
+   this.y = y;
+   this.size = size;
+   this.speed = speed;
+ }
+ public void display()
   {
     fill(0,255,0);
     rect(x , y,  size, 50);
   }
+ public void drive(){
+    x = x + speed;
+    if(x > width){
+      x = 0 - size;
+    }
+    
+    
+  }
+}
+   
+ 
+  
+
+
+
 
 
 void keyPressed()
