@@ -11,8 +11,9 @@ void draw(){
  
    background(#767575); 
   
-  car2.drive();
+  car2.getSize();
   car2.display();
+  boolean cr2 = intersects(car2);
   
 
   fill(#578B0A);
@@ -48,17 +49,34 @@ public class car{
     fill(0,255,0);
     rect(x , y,  size, 50);
   }
- public void drive(){
+ public void driveRight(){
     x = x + speed;
     if(x > width){
       x = 0 - size;
     }
+ }
+     public void driveLeft(){
+      x = x - speed;
+      if(x < 0){
+        x = 800;
+      }
+    }
     
+    public  int getX(){
+      return(x);
+    }
     
+    public int getY(){
+      return(y);
+    }
+  public int getSize(){
+    return(size);
   }
-}
-   
+  
  
+
+
+}
   
 
 
@@ -85,4 +103,16 @@ void keyPressed()
             fx = fx - 30;
         }
     }
+}
+
+ boolean intersects(car car2) {
+ if ((fy > car2.getY() && fy < car2.getY()+50) &&
+                (fx > car2.getX() && fx < car2.getX()+car2.getSize())) {
+              fy = 600;    
+   return true;
+   
+  }
+ else  {
+  return false;
+ }
 }
