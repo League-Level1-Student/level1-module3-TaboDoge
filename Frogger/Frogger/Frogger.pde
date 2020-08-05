@@ -11,7 +11,10 @@ void setup(){
 int fx = 400;
 
 void draw(){
- 
+ if(fy == 0){
+ print("good job!"); 
+ System.exit(0);
+}
    background(#E3F2FA); 
   
   car2.getSize();
